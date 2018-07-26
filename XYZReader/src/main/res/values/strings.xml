@@ -8,5 +8,8 @@
     <string name="action_share">Share</string>
 
     <string name="up">Up</string>
+    <string name="no_more_data_to_display">No more data to display</string>
+    <string name="parsing_todays_date">parsing today\'s date</string>
+    <string name="article_photo">Article photo</string>
 
 </resources>

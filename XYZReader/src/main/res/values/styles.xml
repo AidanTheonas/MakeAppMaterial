@@ -15,14 +15,96 @@
      limitations under the License.
 -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-
+    <style name="xyzReaderTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimaryLight</item>
     </style>
 
-    <style name="Theme.Bacon.Detail">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="match_parent">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="wrap_contents">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="width_match_height_wrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="list_item_article_cardview" parent="width_match_height_wrap">
+        <item name="android:layout_margin">@dimen/list_item_article_cardview_margin</item>
+       <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:elevation" tools:targetApi="lollipop">@dimen/list_item_artcle_cardview_elevation</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+    </style>
+
+    <style name="list_item_article_thumbnail">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:background">@color/photoPlaceholder</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="tv_article_title" parent="width_match_height_wrap">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">4</item>
+        <item name="android:paddingLeft">@dimen/tv_article_title_padding</item>
+        <item name="android:paddingRight">@dimen/tv_article_title_padding</item>
+        <item name="android:paddingTop">@dimen/tv_article_title_padding</item>
+        <item name="android:textSize">@dimen/list_title_size</item>
+    </style>
+    
+    <style name="tv_article_subtitle" parent="width_match_height_wrap">
+        <item name="android:layout_marginBottom">@dimen/tv_article_subtitle_margin_bottom</item>
+        <item name="android:layout_marginTop">@dimen/tv_article_subtitle_margin_top</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:paddingLeft">@dimen/tv_article_subtitle_padding</item>
+        <item name="android:paddingRight">@dimen/tv_article_subtitle_padding</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
+        <item name="android:textSize">@dimen/list_subtitle_size</item>
+    </style>
+
+    <style name="main_activity_toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/tool_bar_height</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:gravity">center</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="layout_scrollFlags">enterAlways|scroll</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+    <style name="main_list_recycler_view" parent="match_parent">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:paddingBottom">@dimen/main_activity_recycler_view_padding_bottom</item>
+        <item name="android:paddingTop">@dimen/main_activity_recycler_view_padding_top</item>
+        <item name="android:paddingLeft">@dimen/list_side_margin</item>
+        <item name="android:paddingRight">@dimen/list_side_margin</item>
+        <item name="android:scrollbarStyle">outsideOverlay</item>
+    </style>
+
+    <style name="action_up">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:background">?selectableItemBackgroundBorderless</item>
+        <item name="android:src">@drawable/ic_arrow_back</item>
+    </style>
+
+    <style name="article_photo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/detail_photo_height</item>
+        <item name="android:scaleType">centerCrop</item>
     </style>
 
 </resources>
