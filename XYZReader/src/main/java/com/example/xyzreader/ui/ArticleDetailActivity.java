@@ -40,21 +40,21 @@ public class ArticleDetailActivity extends AppCompatActivity
     ViewPager mPager;
     private MyPagerAdapter mPagerAdapter;
     @BindView(R.id.up_container)
-    private View mUpButtonContainer;
+    View mUpButtonContainer;
     @BindView(R.id.action_up)
-    private View mUpButton;
+    View mUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                             View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
         setContentView(R.layout.activity_article_detail);
-
+        ButterKnife.bind(this);
+        
         getLoaderManager().initLoader(0, null, this);
 
         mPagerAdapter = new MyPagerAdapter(getFragmentManager());
