@@ -60,6 +60,7 @@
                         android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
                         android:textColor="#fff"
                         android:textSize="@dimen/detail_title_text_size"
+                        android:fontFamily="sans-serif-condensed"
                         android:textStyle="bold" />
 
                     <TextView
