@@ -16,6 +16,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -55,6 +56,8 @@ public class ArticleListActivity extends AppCompatActivity implements
     RecyclerView mRecyclerView;
     @BindView(R.id.cl_main_container)
     CoordinatorLayout coordinatorLayout;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.sss");
     // Use default locale format
@@ -68,6 +71,10 @@ public class ArticleListActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_article_list);
         ButterKnife.bind(this);
         getLoaderManager().initLoader(0, null, this);
+        setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null){
+            getSupportActionBar().setTitle("");
+        }
 
         if (savedInstanceState == null) {
             refresh();
@@ -123,7 +130,13 @@ public class ArticleListActivity extends AppCompatActivity implements
                     new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL);
             mRecyclerView.setLayoutManager(sglm);
         } else {
-            Snackbar.make(coordinatorLayout, R.string.no_more_data_to_display, Snackbar.LENGTH_SHORT).show();
+            Snackbar snackbar = Snackbar.make(coordinatorLayout, R.string.no_more_data_to_display, Snackbar.LENGTH_INDEFINITE);
+            snackbar.setAction(R.string.retry_loading, v -> {
+                snackbar.dismiss();
+                refresh();
+            });
+            snackbar.setActionTextColor(getResources().getColor(R.color.colorPrimaryLight));
+            snackbar.show();
         }
     }
 

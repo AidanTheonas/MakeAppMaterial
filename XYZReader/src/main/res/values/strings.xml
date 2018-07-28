@@ -11,5 +11,6 @@
     <string name="no_more_data_to_display">No more data to display</string>
     <string name="parsing_todays_date">parsing today\'s date</string>
     <string name="article_photo">Article photo</string>
+    <string name="retry_loading">Retry</string>
 
 </resources>

@@ -1,7 +1,6 @@
-<com.example.xyzreader.ui.DrawInsetsFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/draw_insets_frame_layout"
     style="@style/match_parent">
 
     <com.example.xyzreader.ui.ObservableScrollView
@@ -15,7 +14,7 @@
                 style="@style/width_match_height_wrap"
                 android:background="@color/photoPlaceholder">
 
-                <ImageView
+                <com.example.xyzreader.ui.ArticleDetailImage
                     android:id="@+id/photo"
                     style="@style/article_photo"
                     android:contentDescription="@string/article_photo" />
@@ -53,37 +52,17 @@
 
                     <TextView
                         android:id="@+id/article_title"
-                        style="?android:attr/textAppearanceLarge"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:lineSpacingMultiplier="0.9"
-                        android:paddingBottom="@dimen/detail_metabar_title_bottom_padding"
-                        android:textColor="#fff"
-                        android:textSize="@dimen/detail_title_text_size"
-                        android:fontFamily="sans-serif-condensed"
-                        android:textStyle="bold" />
+                        style="@style/titleStyle"/>
 
                     <TextView
                         android:id="@+id/article_byline"
-                        style="?android:attr/textAppearanceSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="#8fff" />
+                        style="@style/subTitleStyle"/>
                 </LinearLayout>
 
                 <TextView
                     android:id="@+id/article_body"
-                    style="?android:attr/textAppearanceMedium"
-                    tools:text="Sample text text text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/detail_inner_horiz_margin"
-                    android:layout_marginRight="@dimen/detail_inner_horiz_margin"
-                    android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier"
-                    android:paddingBottom="@dimen/detail_body_bottom_margin"
-                    android:textColor="@color/colorPrimaryText"
-                    android:textColorLink="@color/colorAccent"
-                    android:textSize="@dimen/detail_body_text_size"/>
+                    style="@style/bodyStyle"
+                    tools:text="Sample text text text"/>
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
         </FrameLayout>
@@ -102,4 +81,4 @@
         app:rippleColor="@color/lightGrey"
         tools:targetApi="lollipop" />
 
-</com.example.xyzreader.ui.DrawInsetsFrameLayout>
+</android.support.design.widget.CoordinatorLayout>

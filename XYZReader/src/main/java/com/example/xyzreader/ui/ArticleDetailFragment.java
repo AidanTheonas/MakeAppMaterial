@@ -54,8 +54,6 @@ public class ArticleDetailFragment extends Fragment implements
     private int mMutedColor = 0xFF333333;
     @BindView(R.id.scrollview)
     ObservableScrollView mScrollView;
-    @BindView(R.id.draw_insets_frame_layout)
-    DrawInsetsFrameLayout mDrawInsetsFrameLayout;
     private ColorDrawable mStatusBarColorDrawable;
 
     private int mTopInset;
@@ -131,7 +129,6 @@ public class ArticleDetailFragment extends Fragment implements
                              Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         ButterKnife.bind(this,mRootView);
-        mDrawInsetsFrameLayout.setOnInsetsCallback(insets -> mTopInset = insets.top);
 
         mScrollView.setCallbacks(() -> {
             mScrollY = mScrollView.getScrollY();
@@ -142,7 +139,6 @@ public class ArticleDetailFragment extends Fragment implements
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
-        bindViews();
         updateStatusBar();
         return mRootView;
     }
@@ -159,7 +155,6 @@ public class ArticleDetailFragment extends Fragment implements
                     (int) (Color.blue(mMutedColor) * 0.9));
         }
         mStatusBarColorDrawable.setColor(color);
-        mDrawInsetsFrameLayout.setInsetBackground(mStatusBarColorDrawable);
     }
 
     static float progress(float v, float min, float max) {
@@ -218,7 +213,9 @@ public class ArticleDetailFragment extends Fragment implements
 
             }
             String body = mCursor.getString(ArticleLoader.Query.BODY);
-            bodyView.setText(Html.fromHtml(body.replaceAll("(\r\n|\n)", "<br />")));
+            bodyView.setText(Html.fromHtml(body
+                    .substring(0,1000)
+                    .replaceAll("(\r\n|\n)", "<br />")));
 
             String shareString = "Book title: " + title + " \nAuthor: " + author + " \n\nPreview:" + body;
             mRootView.findViewById(R.id.share_fab).setOnClickListener(view -> startActivity(Intent.createChooser(ShareCompat.IntentBuilder.from(getActivity())
